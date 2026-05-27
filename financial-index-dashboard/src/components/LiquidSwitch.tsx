@@ -44,14 +44,14 @@ export default function LiquidSwitch({
           {/* Central tiny LED reflection */}
           <div className={`w-1.5 h-1.5 rounded-full transition-all ${
             isActive 
-              ? 'bg-indigo-100' 
+              ? 'bg-slate-100' 
               : 'bg-slate-600'
           }`} />
         </motion.div>
       </div>
 
       {labelRight && (
-        <span className={`text-[10px] uppercase font-extrabold tracking-wider transition-colors ${isActive ? 'text-slate-705' : 'text-slate-400'}`}>
+        <span className={`text-[10px] uppercase font-extrabold tracking-wider transition-colors ${isActive ? 'text-slate-700' : 'text-slate-400'}`}>
           {labelRight}
         </span>
       )}

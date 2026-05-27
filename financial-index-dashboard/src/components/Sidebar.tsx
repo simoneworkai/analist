@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Home, LineChart, Layers2, Bookmark, Sliders, LayoutGrid } from 'lucide-react';
+import { Hop as Home, ChartLine as LineChart, Layers2, Bookmark, FileSliders as Sliders, LayoutGrid, TableProperties as LucideProps } from 'lucide-react';
 import { SidebarTab } from '../types';
 
 interface SidebarProps {
@@ -13,7 +13,7 @@ interface SidebarProps {
 interface SidebarItem {
   id: SidebarTab;
   label: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<LucideProps>;
   badge?: number;
 }
 

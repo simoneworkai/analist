@@ -4,6 +4,7 @@ import { X, Star, Layers, Percent, TrendingUp, TrendingDown, Clock, ShieldCheck,
 import { IndexAsset } from '../types';
 import { generateSimulatedData, TimeframeId, TIMEFRAME_OPTIONS } from '../utils/chartSim';
 import { loadHistoricalData, processHistoryForTimeframe, RawHistoryPoint } from '../utils/historyLoader';
+import { logger } from '../utils/logger';
 import LiquidSwitch from './LiquidSwitch';
 
 interface AssetDetailModalProps {
@@ -54,7 +55,7 @@ export default function AssetDetailModal({
           setIsLoadingReal(false);
         })
         .catch(err => {
-          console.error(err);
+          logger.error('Failed to load historical data for asset:', err);
           setRealHistory([]);
           setIsLoadingReal(false);
         });
@@ -273,19 +274,19 @@ export default function AssetDetailModal({
               <div className="flex flex-wrap items-center gap-x-2.5 gap-y-0.5 font-mono text-[9px] text-slate-500 border-l border-slate-300/40 pl-0.5 sm:pl-3.5">
                 <span className="bg-slate-900/5 px-2 py-0.5 rounded-md">
                   <span className="font-extrabold text-slate-400 mr-0.5 whitespace-nowrap">O</span>
-                  <span className="font-bold text-slate-705">${simulatedPoints[hoveredPointIndex].open}</span>
+                  <span className="font-bold text-slate-700">${simulatedPoints[hoveredPointIndex].open}</span>
                 </span>
                 <span className="bg-emerald-500/5 px-2 py-0.5 rounded-md">
                   <span className="font-extrabold text-emerald-500 mr-0.5 whitespace-nowrap">H</span>
-                  <span className="font-bold text-slate-705">${simulatedPoints[hoveredPointIndex].high}</span>
+                  <span className="font-bold text-slate-700">${simulatedPoints[hoveredPointIndex].high}</span>
                 </span>
                 <span className="bg-rose-500/5 px-2 py-0.5 rounded-md">
                   <span className="font-extrabold text-rose-500 mr-0.5 whitespace-nowrap">L</span>
-                  <span className="font-bold text-slate-705">${simulatedPoints[hoveredPointIndex].low}</span>
+                  <span className="font-bold text-slate-700">${simulatedPoints[hoveredPointIndex].low}</span>
                 </span>
                 <span className="bg-slate-900/5 px-2 py-0.5 rounded-md">
                   <span className="font-extrabold text-slate-400 mr-0.5 whitespace-nowrap">C</span>
-                  <span className="font-bold text-slate-705">${simulatedPoints[hoveredPointIndex].close}</span>
+                  <span className="font-bold text-slate-700">${simulatedPoints[hoveredPointIndex].close}</span>
                 </span>
               </div>
             ) : (
@@ -523,7 +524,7 @@ export default function AssetDetailModal({
                             <span className="text-[8px] font-bold tracking-tight uppercase">Index</span>
                           </div>
                         )}
-                        <span className={`font-sans font-bold text-xs truncate ${isActive ? 'text-white' : 'text-slate-705'}`}>
+                        <span className={`font-sans font-bold text-xs truncate ${isActive ? 'text-white' : 'text-slate-700'}`}>
                           {variant}
                         </span>
                       </div>
@@ -601,17 +602,17 @@ export default function AssetDetailModal({
                   <span className="text-xs font-bold text-slate-700 block">Systemic Beta Ratio</span>
                   <p className="text-[10px] text-slate-400 mt-0.5">Measures index sensitivity relative to ACWI core global indicators.</p>
                 </div>
-                <div className="bg-slate-900/5 px-3 py-1.5 rounded-xl font-mono text-sm font-extrabold text-slate-805">
+                <div className="bg-slate-900/5 px-3 py-1.5 rounded-xl font-mono text-sm font-extrabold text-slate-800">
                   {asset.category === 'crypto' ? '1.82' : asset.category === 'volatility' ? '-1.15' : '1.10'}
                 </div>
               </div>
 
               <div className="flex justify-between items-center p-3 bg-white/11 border border-white/50 rounded-2xl">
                 <div>
-                  <span className="text-xs font-bold text-slate-705 block">Sharpe Portfolio Metric</span>
-                  <p className="text-[10px] text-slate-450 mt-0.5">Quantifies excess risk-adjusted return relative to risk-free treasury bonds.</p>
+                  <span className="text-xs font-bold text-slate-700 block">Sharpe Portfolio Metric</span>
+                  <p className="text-[10px] text-slate-500 mt-0.5">Quantifies excess risk-adjusted return relative to risk-free treasury bonds.</p>
                 </div>
-                <div className="bg-slate-900/5 px-3 py-1.5 rounded-xl font-mono text-sm font-extrabold text-slate-805">
+                <div className="bg-slate-900/5 px-3 py-1.5 rounded-xl font-mono text-sm font-extrabold text-slate-800">
                   2.08
                 </div>
               </div>

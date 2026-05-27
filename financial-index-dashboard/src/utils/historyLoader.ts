@@ -28,7 +28,7 @@ export async function loadHistoricalData(assetId: string): Promise<RawHistoryPoi
     loadedHistoryCache[assetId] = data;
     return data;
   } catch (err) {
-    console.warn(`Failed to retrieve real local history for asset '${assetId}', falling back to model simulation.`, err);
+    console.warn(`[WARN] Failed to retrieve real local history for asset '${assetId}', falling back to model simulation.`, err);
     return [];
   }
 }

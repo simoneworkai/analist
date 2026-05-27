@@ -149,7 +149,7 @@ export default function GlassCard({
           <button
             onClick={(e) => onToggleFavorite(asset.id, e)}
             id={`btn-fav-${asset.id}`}
-            aria-label="Aggiungi ai preferiti nel browser"
+            aria-label={`${isFavorite ? 'Remove from' : 'Add to'} favorites: ${asset.name}`}
             className={`p-1.5 rounded-full transition-colors ${
               isFavorite
                 ? 'bg-slate-800/15 text-slate-800'
@@ -162,7 +162,7 @@ export default function GlassCard({
           <button
             onClick={(e) => onToggleCompare(asset.id, e)}
             id={`btn-comp-${asset.id}`}
-            aria-label="Seleziona per il confronto"
+            aria-label={`${isSelectedForCompare ? 'Remove from' : 'Add to'} comparison: ${asset.name}`}
             className={`p-1.5 rounded-full transition-all ${
               isSelectedForCompare
                 ? 'bg-slate-800 text-white shadow-sm'
