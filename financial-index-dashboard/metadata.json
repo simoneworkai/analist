@@ -1,0 +1,6 @@
+{
+  "name": "Financial Index Dashboard",
+  "description": "A high-fidelity premium dashboard for comparing financial indices, ETFs, sectors, and asset classes with an elegant glassmorphic interface inspired by Apple VisionOS design philosophy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
