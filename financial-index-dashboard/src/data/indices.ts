@@ -118,11 +118,11 @@ export const mockIndices: IndexAsset[] = [
     volume: '3.9B',
     sparkline: [51100, 51220, 51310, 51280, 51450, 51600, 51580, 51790, 51830, 51990, 51945],
     color: {
-      bg: 'bg-slate-500/5',
-      text: 'text-slate-700',
-      glow: 'rgba(100, 116, 139, 0.08)',
-      border: 'border-slate-500/10',
-      accent: 'slate',
+      bg: 'bg-indigo-505/5',
+      text: 'text-indigo-600',
+      glow: 'rgba(99, 102, 241, 0.08)',
+      border: 'border-indigo-500/10',
+      accent: 'indigo',
     },
     description: 'Widely regarded as the total market index, tracking the performance of all actively traded US-headquartered equities.',
     subcategories: ['Growth', 'Value']

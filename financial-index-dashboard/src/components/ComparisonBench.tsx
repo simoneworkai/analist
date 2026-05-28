@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Columns4, Layers2, Trash2, ArrowRight, X, TrendingUp, Circle as HelpCircle } from 'lucide-react';
+import { Columns4, Layers2, Trash2, ArrowRight, X, TrendingUp, HelpCircle } from 'lucide-react';
 import { IndexAsset } from '../types';
 
 interface ComparisonBenchProps {

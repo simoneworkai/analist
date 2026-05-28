@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, SlidersHorizontal, ArrowUpDown, TrendingUp, Circle as HelpCircle, RefreshCw, BookmarkCheck, LayoutGrid, Layers, Globe, Star, Sparkles, Info, ChartBar as BarChart3, RotateCcw, CircleAlert as AlertCircle, Sparkle, Clock, Trash2, X, Heart } from 'lucide-react';
+import { 
+  Search, SlidersHorizontal, ArrowUpDown, TrendingUp, HelpCircle, 
+  RefreshCw, BookmarkCheck, LayoutGrid, Layers, Globe, Star, Sparkles,
+  Info, BarChart3, RotateCcw, AlertCircle, Sparkle, Clock, Trash2, X, Heart
+} from 'lucide-react';
 
 import { IndexAsset, SidebarTab, ComparisonState } from './types';
 import { mockIndices } from './data/indices';
@@ -11,7 +15,6 @@ import ComparisonBench from './components/ComparisonBench';
 import AssetDetailModal from './components/AssetDetailModal';
 import { generateSimulatedData, TimeframeId, TIMEFRAME_OPTIONS } from './utils/chartSim';
 import { loadHistoricalData, processHistoryForTimeframe, RawHistoryPoint } from './utils/historyLoader';
-import { logger } from './utils/logger';
 import LiquidSwitch from './components/LiquidSwitch';
 
 export default function App() {
@@ -146,7 +149,7 @@ export default function App() {
               [id]: data
             }));
           })
-          .catch(err => logger.error(`Error loading comparison history in App for ${id}`, err));
+          .catch(err => console.error(`Error loading comparison history in App for ${id}:`, err));
       }
     });
   }, [selectedAssetIds]);
@@ -406,11 +409,11 @@ export default function App() {
                   <AlertCircle className="w-10 h-10 text-slate-350 mx-auto stroke-1" />
                   <h4 className="font-sans font-bold text-slate-700 text-base mt-4">Uncharted Waters</h4>
                   <p className="text-xs text-slate-400 leading-relaxed mt-2.5">
-                    We could not find any active index matching <span className="text-blue-600 font-semibold italic">"{searchQuery}"</span>. Modify your filter parameters and try again.
+                    We could not find any active index matching <span className="text-indigo-600 font-semibold italic">"{searchQuery}"</span>. Modify your filter parameters and try again.
                   </p>
                   <button
                     onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-                    className="mt-5 text-blue-500 text-xs font-bold underline hover:text-blue-600 cursor-pointer"
+                    className="mt-5 text-indigo-500 text-xs font-bold underline hover:text-indigo-600 cursor-pointer"
                   >
                     Reset Explorer Filters
                   </button>
@@ -492,13 +495,13 @@ export default function App() {
                       {selectedCompareAssets.length === 1 && comparisonChartCoords?.[0] && compareHoveredIndex !== null && (
                         <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-mono text-[9px] text-slate-500 bg-white/40 border border-white/90 px-3 py-1.5 rounded-xl shadow-sm">
                           <span className="font-extrabold text-slate-400 mr-1 uppercase">O:</span>
-                          <span className="font-bold text-slate-800 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].open}</span>
+                          <span className="font-bold text-slate-805 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].open}</span>
                           <span className="font-extrabold text-emerald-500 mr-1 uppercase">H:</span>
-                          <span className="font-bold text-slate-800 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].high}</span>
+                          <span className="font-bold text-slate-805 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].high}</span>
                           <span className="font-extrabold text-rose-500 mr-1 uppercase">L:</span>
-                          <span className="font-bold text-slate-800 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].low}</span>
+                          <span className="font-bold text-slate-805 mr-2.5">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].low}</span>
                           <span className="font-extrabold text-slate-400 mr-1 uppercase">C:</span>
-                          <span className="font-bold text-slate-800">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].close}</span>
+                          <span className="font-bold text-slate-805">${comparisonChartCoords[0].simulatedPoints[compareHoveredIndex].close}</span>
                         </div>
                       )}
 
@@ -712,7 +715,7 @@ export default function App() {
                           return (
                             <tr 
                               key={asset.id} 
-                              className="border-b border-slate-200/10 hover:bg-white/40 transition-colors"
+                              className="border-b border-indigo-200/10 hover:bg-white/40 transition-colors"
                             >
                               {/* Asset Head cell */}
                               <td className="py-4 px-4 font-sans">
